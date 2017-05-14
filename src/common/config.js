@@ -5,5 +5,3 @@ const createNavItem = (route, displayName, component) => ({route, displayName, c
 const navItems = [
   createNavItem('/', 'Home', 'HomePage.js')
 ];
-
-console.log(navItems);
