@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from '../img/logo.svg';
-import '../styles/App.css';
+import logo from '../../img/logo.svg';
+import './HomePage.css';
 
 const OrigExample = () => (
   <div className='App'>
