@@ -10,6 +10,9 @@ ReactDOM.render(
   <Router>
     <div>
       <ul>
+        {navItems.map((navItem, idx) => (
+          <li key='{idx}'><Link to='{navItem.route}'>{navItem.displayName}</Link></li>
+        ))}
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/about'>About</Link></li>
       </ul>

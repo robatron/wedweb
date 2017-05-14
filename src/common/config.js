@@ -2,6 +2,6 @@
 const createNavItem = (route, displayName, component) => ({route, displayName, component});
 
 // Navigation items
-const navItems = [
+export const navItems = [
   createNavItem('/', 'Home', 'HomePage.js')
 ];
