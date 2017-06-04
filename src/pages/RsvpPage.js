@@ -1,9 +1,10 @@
 import React from 'react';
+import RsvpForm from '../components/RsvpForm';
 
 const RsvpPage = () => (
   <div>
     <h2>RSVP</h2>
-    <p>[Placeholder]</p>
+    <RsvpForm/>
   </div>
 );
 
