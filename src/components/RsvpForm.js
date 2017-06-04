@@ -6,7 +6,7 @@ class RsvpForm extends React.Component {
     super(props);
     this.state = {
       'names': '',
-      'isAttending': 'null',
+      'isAttending': null,
       'dietRestricts': '',
       'comments': ''
     };
@@ -26,11 +26,11 @@ class RsvpForm extends React.Component {
       .get({
         url:'http://localhost:3000',
         form: {
-          howdyTo: this.state.value
+          ...this.state
         }
       })
       .on('response', (response) => {
-        console.log('Server response', response);
+        console.log('Successfully submitted:', response.request);
       })
   }
 
@@ -46,19 +46,33 @@ class RsvpForm extends React.Component {
           />
         </label>
         <br />
+
         <label>
-          <select
-            value={this.state['isAttending']}
+          <input
+            type="radio"
+            name="isAttending"
+            value={true}
+            checked={this.state.isAttending === "true"}
             onChange={this.handleChange.bind(this, 'isAttending')}
-          >
-            <option value="null">(Can you make it?)</option>
-            <option value="true">Accepts with hysterical pleasure</option>
-            <option value="false">Declines with extreme regret</option>
-          </select>
+          />
+            Accepts with hysterical pleasure
         </label>
         <br />
+
         <label>
-          Dietary restrictions
+          <input
+            type="radio"
+            name="isAttending"
+            value={false}
+            checked={this.state.isAttending === "false"}
+            onChange={this.handleChange.bind(this, 'isAttending')}
+          />
+            Declines with extreme regret
+        </label>
+        <br />
+
+        <label>
+          Dietary restrictions:
           <input
             type="text"
             value={this.state['dietRestrict']}
