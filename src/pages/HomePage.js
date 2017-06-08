@@ -1,6 +1,7 @@
 import React from 'react';
-import logo from '../../img/logo.svg';
+import Button from 'react-bootstrap/lib/Button';
 import './HomePage.css';
+import logo from '../../img/logo.svg';
 
 const OrigExample = () => (
   <div className='App'>
@@ -11,6 +12,8 @@ const OrigExample = () => (
     <p className='App-intro'>
       To get started, edit <code>src/App.js</code> and save to reload.
     </p>
+    <p>Check out dis button:</p>
+    <Button bsStyle="primary" bsSize="large">dis button</Button>
   </div>
 );
 
