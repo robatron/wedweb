@@ -2,7 +2,6 @@ import React from 'react';
 import request from 'request';
 import {
   Button,
-  Checkbox,
   ControlLabel,
   FormControl,
   FormGroup,
@@ -56,94 +55,57 @@ class RsvpForm extends React.Component {
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit.bind(this)}>
           <FieldGroup
             id="formControlsNames"
-            type="text"
             label="Name(s)"
+            onChange={this.handleChange.bind(this, 'names')}
             placeholder="Enter your (and your guest's) names"
-          />
-          <FieldGroup
-            id="formControlsEmail"
-            type="email"
-            label="Email address"
-            placeholder="Enter a contact email address"
+            type="text"
+            value={this.state['names']}
           />
 
           <FormGroup>
-            <Radio name="radioGroup">
+            <Radio
+              checked={this.state.isAttending === 'true'}
+              name="radioGroup"
+              onChange={this.handleChange.bind(this, 'isAttending')}
+              value="true"
+            >
               Accepts with hysterical pleasure
             </Radio>
-            <Radio name="radioGroup">
+            <Radio
+              checked={this.state.isAttending === 'false'}
+              name="radioGroup"
+              onChange={this.handleChange.bind(this, 'isAttending')}
+              value="false"
+            >
               Declines with extreme regret
             </Radio>
           </FormGroup>
 
+          <FieldGroup
+            id="formControlsDiet"
+            label="Dietary restrictions"
+            onChange={this.handleChange.bind(this, 'dietRestricts')}
+            placeholder="Enter your (and/or your guest's) dietary restrictions"
+            type="text"
+            value={this.state['dietRestrict']}
+          />
+
           <FormGroup controlId="formControlsTextarea">
             <ControlLabel>Comments</ControlLabel>
-            <FormControl componentClass="textarea" placeholder="Enter additional comments" />
+            <FormControl
+              componentClass="textarea"
+              onChange={this.handleChange.bind(this, 'comments')}
+              placeholder="Enter additional comments"
+              value={this.state['comments']}
+            />
           </FormGroup>
 
           <Button type="submit">
             Submit
           </Button>
-        </form>
-
-        <hr/>
-
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <label>
-            Name(s):
-            <input
-              type="text"
-              value={this.state['names']}
-              onChange={this.handleChange.bind(this, 'names')}
-            />
-          </label>
-          <br />
-
-          <label>
-            <input
-              type="radio"
-              name="isAttending"
-              value={true}
-              checked={this.state.isAttending === "true"}
-              onChange={this.handleChange.bind(this, 'isAttending')}
-            />
-              Accepts with hysterical pleasure
-          </label>
-          <br />
-
-          <label>
-            <input
-              type="radio"
-              name="isAttending"
-              value={false}
-              checked={this.state.isAttending === "false"}
-              onChange={this.handleChange.bind(this, 'isAttending')}
-            />
-              Declines with extreme regret
-          </label>
-          <br />
-
-          <label>
-            Dietary restrictions:
-            <input
-              type="text"
-              value={this.state['dietRestrict']}
-              onChange={this.handleChange.bind(this, 'dietRestricts')}
-            />
-          </label>
-          <br />
-          <label>
-            Additional Comments:
-            <textarea
-              value={this.state['comments']}
-              onChange={this.handleChange.bind(this, 'comments')}
-            />
-          </label>
-          <br />
-          <input type="submit" value="Submit" />
         </form>
       </div>
     );
