@@ -41,7 +41,7 @@ class RsvpForm extends React.Component {
     console.log('Submitting state:', this.state);
 
     request
-      .get({
+      .post({
         url:'http://localhost:5000',
         form: {
           ...this.state
