@@ -1,10 +1,15 @@
 import React from 'react';
+import Map from '../components/MapComponent';
 
-const WhenAndWherePage = () => (
-  <div>
-    <h2>When and Where</h2>
-    <p>[Placeholder]</p>
-  </div>
-);
+class WhenAndWherePage extends React.Component {
+  render() {
+    return (
+      <div>
+        <h2>When and Where</h2>
+        <Map />
+      </div>
+    );
+  }
+}
 
 export default WhenAndWherePage
