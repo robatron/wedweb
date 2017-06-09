@@ -1,5 +1,5 @@
 import React from 'react';
-import RsvpForm from '../components/RsvpForm';
+import RsvpForm from '../components/RsvpFormComponent';
 
 const RsvpPage = () => (
   <div>
