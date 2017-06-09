@@ -32,7 +32,7 @@ Rough site map:
 - RSVP
  */
 const pages = [
-  createPageItem('/',               'Home',           HomePage),
+  createPageItem('/',               'Alissa & Rob',   HomePage),
   createPageItem('/when-and-where', 'When & Where',   WhenAndWherePage),
   createPageItem('/what-to-expect', 'What to Expect', WhatToExpectPage),
   createPageItem('/accommodations', 'Accommodations', AccommodationsPage),

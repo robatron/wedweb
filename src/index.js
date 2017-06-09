@@ -6,23 +6,13 @@ import pages from './pages'
 import Navbar from './components/NavbarComponent';
 
 ReactDOM.render(
-  <div>
-    <Router>
-      <div>
-        <ul>
-          {pages.map((page, idx) => (
-            <li key={idx}><Link to={page.route}>{page.displayName}</Link></li>
-          ))}
-        </ul>
-
-        <hr/>
-
-        {pages.map((page, idx) => (
-          <Route key={idx} exact path={page.route} component={page.pageComponent}/>
-        ))}
-      </div>
-    </Router>
-    <Navbar/>
-  </div>,
+  <Router>
+    <div>
+      <Navbar pages={pages} />
+      {pages.map((page, idx) => (
+        <Route key={idx} exact path={page.route} component={page.pageComponent}/>
+      ))}
+    </div>
+  </Router>,
   document.getElementById('root')
 );

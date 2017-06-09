@@ -1,27 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Navbar,
   Nav,
-  NavItem,
-  MenuItem,
-  NavDropdown
+  NavItem
 } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-const NavbarComponent = () => (
+const NavbarComponent = ({pages}) => (
   <Navbar collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
-        <a href="#">Alissa & Rob</a>
+        <Link to={pages[0].route}>{pages[0].displayName}</Link>
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav>
-        <NavItem eventKey={1} href="#">Link</NavItem>
-        <NavItem eventKey={2} href="#">Link</NavItem>
+        {pages.slice(1).map((page, idx) => (
+          <NavItem eventKey={idx}><Link to={page.route}>{page.displayName}</Link></NavItem>
+        ))}
       </Nav>
     </Navbar.Collapse>
   </Navbar>
 );
+
+NavbarComponent.propTyes = {
+  pages: PropTypes.array.isRequired
+};
 
 export default NavbarComponent;
